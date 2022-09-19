@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../button/Button";
+import "./product-card.styles.scss";
 
 function ProductCard({ product }) {
   const { name, price, imageUrl } = product;
