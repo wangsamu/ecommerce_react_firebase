@@ -6,7 +6,7 @@ function ProductCard({ product }) {
   const { name, price, imageUrl } = product;
 
   return (
-    <div>
+    <div className="product-card-container">
       <img src={imageUrl} alt={name} />
       <div>
         <span className="name">{name}</span>
