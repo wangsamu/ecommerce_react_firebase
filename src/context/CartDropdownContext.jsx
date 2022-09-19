@@ -7,7 +7,7 @@ export const CartDropdownContext = createContext({
 
 export const CartDropdownProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const value = { isOpen };
+  const value = { isOpen, setIsOpen };
   return (
     <CartDropdownContext.Provider value={value}>
       {children}

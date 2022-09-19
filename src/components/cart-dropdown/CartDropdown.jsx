@@ -6,9 +6,9 @@ import "./cart-dropdown.styles.scss";
 function CartDropdown() {
   const { isOpen } = useContext(CartDropdownContext);
 
-  if (!isOpen) {
-    return;
-  }
+  //   if (!isOpen) {
+  //     return;
+  //   }
 
   return (
     <div className="cart-dropdown-container">
