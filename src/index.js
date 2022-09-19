@@ -6,13 +6,16 @@ import { UserProvider } from "../src/context/UserContext";
 import { ProductProvider } from "./context/ProductContext";
 import reportWebVitals from "./reportWebVitals";
 import "./index.styles.scss";
+import { CartDropdownProvider } from "./context/CartDropdownContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
         <ProductProvider>
-          <App />
+          <CartDropdownProvider>
+            <App />
+          </CartDropdownProvider>
         </ProductProvider>
       </UserProvider>
     </BrowserRouter>

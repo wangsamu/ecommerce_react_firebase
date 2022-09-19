@@ -3,6 +3,7 @@ import CartDropdown from "../components/cart-dropdown/CartDropdown";
 
 export const CartDropdownContext = createContext({
   isOpen: false,
+  setIsCartOpen: () => {},
 });
 
 export const CartDropdownProvider = ({ children }) => {

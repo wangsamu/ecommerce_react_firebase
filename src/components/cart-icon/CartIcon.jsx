@@ -8,6 +8,7 @@ function CartIcon() {
 
   const handleClick = () => {
     setIsOpen(!isOpen);
+    console.log(isOpen);
   };
 
   return (
