@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
 import { CartContext } from "../../context/CartContext";
 
 function CheckOut() {
@@ -16,15 +17,7 @@ function CheckOut() {
           <th>Remove</th>
         </tr>
         {cartItems.map((product) => (
-          <tr key={product.id}>
-            <td>
-              <img src={product.imageUrl} alt={product.name} />
-            </td>
-            <td>{product.name}</td>
-            <td>{product.quantity}</td>
-            <td>{product.price}</td>
-            <td>Remove</td>
-          </tr>
+          <CheckoutItem product={product} />
         ))}
       </table>
     </div>
