@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import React from "react";
 
 function CheckoutItem(props) {
   const {
@@ -8,21 +7,22 @@ function CheckoutItem(props) {
     handleIncreaseQuantity,
     handleDecreaseQuantity,
   } = props;
-  const { cartItems, setCartItems } = useContext(CartContext);
+
+  const { id, name, imageUrl, price, quantity } = product;
 
   return (
     <div>
-      <tr key={product.id}>
+      <tr key={id}>
         <td>
-          <img src={product.imageUrl} alt={product.name} />
+          <img src={imageUrl} alt={name} />
         </td>
-        <td>{product.name}</td>
+        <td>{name}</td>
         <td>
           <button onClick={handleDecreaseQuantity}>- </button>
-          <p>{product.quantity}</p>
+          <p>{quantity}</p>
           <button onClick={handleIncreaseQuantity}> +</button>
         </td>
-        <td>{product.price}</td>
+        <td>{price}</td>
         <td>
           <button onClick={handleRemove}>Remove Item</button>
         </td>

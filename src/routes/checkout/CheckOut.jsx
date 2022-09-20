@@ -5,14 +5,33 @@ import { CartContext } from "../../context/CartContext";
 function CheckOut() {
   const { cartItems, setCartItems, priceCount } = useContext(CartContext);
 
-  const handleRemove = (p) => {
+  const handleRemove = (currentProduct) => {
     //when clicked, remove the product from cartItems array
-    const newCartItems = cartItems.filter((item) => item.id !== p.id);
+    const newCartItems = cartItems.filter(
+      (item) => item.id !== currentProduct.id
+    );
     setCartItems(newCartItems);
   };
 
-  const handleIncreaseQuantity = () => {};
-  const handleDecreaseQuantity = () => {};
+  const handleIncreaseQuantity = (currentProduct) => {
+    //when clicked, add one to cartItems.product.quantity
+    const newCartItems = cartItems.map((item) =>
+      item.id === currentProduct.id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCartItems(newCartItems);
+  };
+
+  const handleDecreaseQuantity = (currentProduct) => {
+    //when clicked, subtract one to cartItems.product.quantity
+    const newCartItems = cartItems.map((item) =>
+      item.id === currentProduct.id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCartItems(newCartItems);
+  };
 
   return (
     <div>
@@ -29,8 +48,8 @@ function CheckOut() {
             product={product}
             key={product.id}
             handleRemove={() => handleRemove(product)}
-            handleIncreaseQuantity={handleIncreaseQuantity}
-            handleDecreaseQuantity={handleDecreaseQuantity}
+            handleIncreaseQuantity={() => handleIncreaseQuantity(product)}
+            handleDecreaseQuantity={() => handleIncreaseQuantity(product)}
           />
         ))}
       </table>
