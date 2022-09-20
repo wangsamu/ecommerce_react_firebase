@@ -6,7 +6,7 @@ import { UserProvider } from "../src/context/UserContext";
 import { ProductProvider } from "./context/ProductContext";
 import reportWebVitals from "./reportWebVitals";
 import "./index.styles.scss";
-import { CartDropdownProvider } from "./context/CartDropdownContext";
+import { CartDropdownProvider } from "./context/CartContext";
 
 ReactDOM.render(
   <React.StrictMode>

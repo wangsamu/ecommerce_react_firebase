@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { CartDropdownContext } from "../../context/CartDropdownContext";
+import { CartContext } from "../../context/CartContext";
 import Button from "../button/Button";
 import "./cart-dropdown.styles.scss";
 
 function CartDropdown() {
-  const { isOpen } = useContext(CartDropdownContext);
+  const { isCartOpen } = useContext(CartContext);
 
-  //   if (!isOpen) {
+  //   if (!isCartOpen) {
   //     return;
   //   }
 
