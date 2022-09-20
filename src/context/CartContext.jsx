@@ -55,6 +55,7 @@ export const CartDropdownProvider = ({ children }) => {
     isCartOpen,
     setisCartOpen,
     cartItems,
+    setCartItems,
     addItemToCart,
     itemCount,
     priceCount,
