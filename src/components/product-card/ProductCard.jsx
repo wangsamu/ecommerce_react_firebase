@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../button/Button";
 import "./product-card.styles.scss";
 import { CartContext } from "../../context/CartContext";
 
 function ProductCard({ product }) {
   const { name, price, imageUrl } = product;
+  const { addItemToCart } = useContext(CartContext);
 
   const addProductToCart = () => addItemToCart(product);
 

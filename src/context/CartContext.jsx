@@ -1,15 +1,14 @@
 import { createContext, useContext, useState } from "react";
-import CartDropdown from "../components/cart-dropdown/CartDropdown";
 
 const addCartItem = (cartItems, productToAdd) => {
   const itemIsInCart = cartItems.find((item) => item.id === productToAdd.id);
 
   if (itemIsInCart) {
-    const newCartItems = cartItems.map((item) => {
-      item.id === itemInCart.id
+    const newCartItems = cartItems.map((item) =>
+      item.id === productToAdd.id
         ? { ...item, quantity: item.quantity + 1 }
-        : item;
-    });
+        : item
+    );
     return newCartItems;
   } else {
     const newItem = {
