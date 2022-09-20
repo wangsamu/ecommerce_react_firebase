@@ -4,10 +4,7 @@ import { ReactComponent as CartIconSVG } from "../../assets/shopping-bag.svg";
 import { CartContext } from "../../context/CartContext";
 
 function CartIcon() {
-  const { isCartOpen, setisCartOpen, cartItems } = useContext(CartContext);
-  const itemCount = cartItems
-    .map((product) => product.quantity)
-    .reduce((acc, current) => acc + current, 0);
+  const { isCartOpen, setisCartOpen, itemCount } = useContext(CartContext);
 
   const handleClick = () => {
     setisCartOpen(!isCartOpen);
