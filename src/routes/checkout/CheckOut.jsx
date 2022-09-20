@@ -14,6 +14,7 @@ function CheckOut() {
     setCartItems(newCartItems);
   };
 
+  //*********** */ to be substituted by addItemToCart function from CartContext
   const handleIncreaseQuantity = (currentProduct) => {
     //when clicked, add one to cartItems.product.quantity
     const newCartItems = cartItems.map((item) =>
@@ -24,6 +25,10 @@ function CheckOut() {
     setCartItems(newCartItems);
   };
 
+  //*********** */ to be substituted by addItemToCart function from CartContext
+  //add the following functionalities:
+  //subtract the obj.quantity when clicked
+  //when it reaches zero, eliminate the product from the cartItems array
   const handleDecreaseQuantity = (currentProduct) => {
     //when clicked, subtract one to cartItems.product.quantity
     const newCartItems = cartItems.map((item) =>
@@ -50,7 +55,7 @@ function CheckOut() {
             key={product.id}
             handleRemove={() => handleRemove(product)}
             handleIncreaseQuantity={() => handleIncreaseQuantity(product)}
-            handleDecreaseQuantity={() => handleIncreaseQuantity(product)}
+            handleDecreaseQuantity={() => handleDecreaseQuantity(product)}
           />
         ))}
       </table>
