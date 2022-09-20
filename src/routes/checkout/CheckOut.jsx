@@ -3,7 +3,7 @@ import CheckoutItem from "../../components/CheckoutItem/CheckoutItem";
 import { CartContext } from "../../context/CartContext";
 
 function CheckOut() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, priceCount } = useContext(CartContext);
   //   const { imageUrl, name, id, price, quantity } = cartItems;
 
   return (
@@ -20,6 +20,7 @@ function CheckOut() {
           <CheckoutItem product={product} />
         ))}
       </table>
+      <h2>Total: ${priceCount}</h2>
     </div>
   );
 }

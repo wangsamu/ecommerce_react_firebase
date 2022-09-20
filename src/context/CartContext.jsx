@@ -30,13 +30,21 @@ export const CartDropdownProvider = ({ children }) => {
   const [isCartOpen, setisCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
+  const [priceCount, setPriceCount] = useState(0);
 
   useEffect(() => {
     const newItemCount = cartItems.reduce(
       (acc, current) => acc + current.quantity,
       0
     );
+
+    const newPriceCount = cartItems.reduce(
+      (acc, current) => acc + current.quantity * current.price,
+      0
+    );
+
     setItemCount(newItemCount);
+    setPriceCount(newPriceCount);
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
@@ -49,6 +57,7 @@ export const CartDropdownProvider = ({ children }) => {
     cartItems,
     addItemToCart,
     itemCount,
+    priceCount,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
