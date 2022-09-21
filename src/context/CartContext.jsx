@@ -19,12 +19,7 @@ const addCartItem = (cartItems, productToAdd) => {
   }
 };
 
-//*********** */ to be substituted by addItemToCart function from CartContext
-//add the following functionalities:
-//subtract the obj.quantity when clicked
-//when it reaches zero, eliminate the product from the cartItems array
 const subtractCartItem = (cartItems, productToSubtract) => {
-  //when clicked, subtract one to cartItems.product.quantity
   if (productToSubtract.quantity > 1) {
     const newCartItems = cartItems.map((item) =>
       item.id === productToSubtract.id
@@ -41,7 +36,6 @@ const subtractCartItem = (cartItems, productToSubtract) => {
 };
 
 const removeCartItem = (cartItems, productToRemove) => {
-  //when clicked, remove the product from cartItems array
   const newCartItems = cartItems.filter(
     (item) => item.id !== productToRemove.id
   );
