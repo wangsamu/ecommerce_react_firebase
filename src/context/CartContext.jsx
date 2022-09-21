@@ -25,7 +25,7 @@ const addCartItem = (cartItems, productToAdd) => {
 //when it reaches zero, eliminate the product from the cartItems array
 const subtractCartItem = (cartItems, productToSubtract) => {
   //when clicked, subtract one to cartItems.product.quantity
-  if (productToSubtract.quantity > 0) {
+  if (productToSubtract.quantity > 1) {
     const newCartItems = cartItems.map((item) =>
       item.id === productToSubtract.id
         ? { ...item, quantity: item.quantity - 1 }
