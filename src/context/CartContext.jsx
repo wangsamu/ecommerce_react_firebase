@@ -60,13 +60,14 @@ export const CartDropdownProvider = ({ children }) => {
       (acc, current) => acc + current.quantity,
       0
     );
+    setItemCount(newItemCount);
+  }, [cartItems]);
 
+  useEffect(() => {
     const newPriceCount = cartItems.reduce(
       (acc, current) => acc + current.quantity * current.price,
       0
     );
-
-    setItemCount(newItemCount);
     setPriceCount(newPriceCount);
   }, [cartItems]);
 
