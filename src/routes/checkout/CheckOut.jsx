@@ -4,7 +4,8 @@ import { CartContext } from "../../context/CartContext";
 import "./checkout.styles.scss";
 
 function CheckOut() {
-  const { cartItems, setCartItems, priceCount } = useContext(CartContext);
+  const { cartItems, setCartItems, priceCount, addItemToCart } =
+    useContext(CartContext);
 
   const handleRemove = (currentProduct) => {
     //when clicked, remove the product from cartItems array
@@ -55,7 +56,7 @@ function CheckOut() {
             key={product.id}
             handleRemove={() => handleRemove(product)}
             handleIncreaseQuantity={() => handleIncreaseQuantity(product)}
-            handleDecreaseQuantity={() => handleDecreaseQuantity(product)}
+            handleDecreaseQuantity={() => addItemToCart(product)}
           />
         ))}
       </table>
