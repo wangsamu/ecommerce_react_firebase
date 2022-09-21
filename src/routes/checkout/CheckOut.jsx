@@ -14,26 +14,24 @@ function CheckOut() {
   } = useContext(CartContext);
 
   return (
-    <div>
-      <table>
-        <tr>
-          <th>Product</th>
-          <th>Description</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Remove</th>
-        </tr>
-        {cartItems.map((product) => (
-          <CheckoutItem
-            product={product}
-            key={product.id}
-            handleRemove={() => removeItemFromCart(product)}
-            handleIncreaseQuantity={() => addItemToCart(product)}
-            handleDecreaseQuantity={() => subtractItemFromCart(product)}
-          />
-        ))}
-      </table>
-      <h2>Total: ${priceCount}</h2>
+    <div className="checkout-container">
+      <div className="checkout-header">
+        <div className="header-block">Product</div>
+        <div className="header-block">Description</div>
+        <div className="header-block">Quantity</div>
+        <div className="header-block">Price</div>
+        <div className="header-block">Remove</div>
+      </div>
+      {cartItems.map((product) => (
+        <CheckoutItem
+          product={product}
+          key={product.id}
+          handleRemove={() => removeItemFromCart(product)}
+          handleIncreaseQuantity={() => addItemToCart(product)}
+          handleDecreaseQuantity={() => subtractItemFromCart(product)}
+        />
+      ))}
+      <h2 className="total">Total: ${priceCount}</h2>
     </div>
   );
 }
