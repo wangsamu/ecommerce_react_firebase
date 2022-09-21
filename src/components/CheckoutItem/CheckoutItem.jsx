@@ -18,13 +18,13 @@ function CheckoutItem(props) {
       </div>
       <div className="name">{name}</div>
       <div className="quantity">
-        <button onClick={handleDecreaseQuantity}>- </button>
-        <p>{quantity}</p>
-        <button onClick={handleIncreaseQuantity}> +</button>
+        <span onClick={handleDecreaseQuantity}>&#10094;</span>
+        <span>{quantity}</span>
+        <span onClick={handleIncreaseQuantity}>&#10095;</span>
       </div>
       <div className="price">{price}</div>
       <button className="remove-button" onClick={handleRemove}>
-        Remove Item
+        &#10005;
       </button>
     </div>
   );
