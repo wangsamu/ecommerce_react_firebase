@@ -19,6 +19,27 @@ const addCartItem = (cartItems, productToAdd) => {
   }
 };
 
+//*********** */ to be substituted by addItemToCart function from CartContext
+//add the following functionalities:
+//subtract the obj.quantity when clicked
+//when it reaches zero, eliminate the product from the cartItems array
+const subtractCartItem = (cartItems, productToSubtract) => {
+  //when clicked, subtract one to cartItems.product.quantity
+  if (productToSubtract.quantity > 0) {
+    const newCartItems = cartItems.map((item) =>
+      item.id === productToSubtract.id
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    );
+    return newCartItems;
+  } else {
+    const newCartItems = cartItems.filter(
+      (item) => item.id !== productToSubtract.id
+    );
+    return newCartItems;
+  }
+};
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
@@ -51,6 +72,10 @@ export const CartDropdownProvider = ({ children }) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };
 
+  const subtractItemFromCart = (productToAdd) => {
+    setCartItems(subtractCartItem(cartItems, productToAdd));
+  };
+
   const value = {
     isCartOpen,
     setisCartOpen,
@@ -59,6 +84,7 @@ export const CartDropdownProvider = ({ children }) => {
     addItemToCart,
     itemCount,
     priceCount,
+    subtractItemFromCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
