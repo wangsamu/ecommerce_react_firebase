@@ -13,19 +13,19 @@ function CheckoutItem(props) {
 
   return (
     <div key={id} className="checkout-item-container">
-      <div>
+      <div className="image-container">
         <img src={imageUrl} alt={name} />
       </div>
-      <div>{name}</div>
-      <div>
+      <div className="name">{name}</div>
+      <div className="quantity">
         <button onClick={handleDecreaseQuantity}>- </button>
         <p>{quantity}</p>
         <button onClick={handleIncreaseQuantity}> +</button>
       </div>
-      <div>{price}</div>
-      <div>
-        <button onClick={handleRemove}>Remove Item</button>
-      </div>
+      <div className="price">{price}</div>
+      <button className="remove-button" onClick={handleRemove}>
+        Remove Item
+      </button>
     </div>
   );
 }
