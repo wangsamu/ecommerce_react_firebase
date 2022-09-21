@@ -40,6 +40,14 @@ const subtractCartItem = (cartItems, productToSubtract) => {
   }
 };
 
+const removeCartItem = (cartItems, productToRemove) => {
+  //when clicked, remove the product from cartItems array
+  const newCartItems = cartItems.filter(
+    (item) => item.id !== productToRemove.id
+  );
+  return newCartItems;
+};
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
@@ -76,6 +84,10 @@ export const CartDropdownProvider = ({ children }) => {
     setCartItems(subtractCartItem(cartItems, productToAdd));
   };
 
+  const removeItemFromCart = (productToAdd) => {
+    setCartItems(removeCartItem(cartItems, productToAdd));
+  };
+
   const value = {
     isCartOpen,
     setisCartOpen,
@@ -85,6 +97,7 @@ export const CartDropdownProvider = ({ children }) => {
     itemCount,
     priceCount,
     subtractItemFromCart,
+    removeItemFromCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
