@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { CategoriesContext } from "../../context/CategoriesContext";
 import "./shop.styles.scss";
-import { Routes, Route } from "react";
+import { Routes, Route } from "react-router-dom";
 import CategoriesPreview from "../CategoriesPreview/CategoriesPreview";
+import Category from "../Category/Category";
 
 function Shop() {
   const { categoriesMap } = useContext(CategoriesContext);
@@ -20,6 +21,7 @@ function Shop() {
     //   </div>
     <Routes>
       <Route index element={<CategoriesPreview />} />
+      <Route path=":category" element={<Category />} />
     </Routes>
   );
 }

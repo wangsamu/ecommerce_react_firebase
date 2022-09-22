@@ -9,15 +9,17 @@ function CategoriesPreview() {
 
   console.log(categoriesMap);
   return (
-    <Fragment className="categories-preview-container">
-      {Object.keys(categoriesMap).map((title) => {
-        console.log(title);
-        const products = categoriesMap[title];
-        return (
-          <CategoryPreview key={title} products={products} title={title} />
-        );
-      })}
-    </Fragment>
+    <div className="categories-preview-container">
+      <Fragment>
+        {Object.keys(categoriesMap).map((title) => {
+          console.log(title);
+          const products = categoriesMap[title];
+          return (
+            <CategoryPreview key={title} products={products} title={title} />
+          );
+        })}
+      </Fragment>
+    </div>
   );
 }
 
