@@ -9,21 +9,22 @@ function Shop() {
 
   console.log(categoriesMap);
   return (
-    <Fragment>
+    <div className="shop-container">
       {Object.keys(categoriesMap).map((title) => {
         console.log(title);
+        const products = categoriesMap[title];
         return (
-          <Fragment key={title}>
-            <h2>{title}</h2>
-            <div className="products-container">
-              {categoriesMap[title].map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          </Fragment>
+          // <Fragment key={title}>
+          //   <h2>{title}</h2>
+          //   <div className="products-container">
+          //     {categoriesMap[title].map((product) => (
+          //       <ProductCard key={product.id} product={product} />
+          //     ))}
+          //   </div>
+          // </Fragment>
         );
       })}
-    </Fragment>
+    </div>
   );
 }
 
