@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-import { CategoryContext } from "./CategoryContext";
 import {
   addCollectionAndDocuments,
   getCategoriesAndDocuments,
@@ -12,13 +11,14 @@ export const CategoriesContext = createContext({
 });
 
 export const CategoriesProvider = ({ children }) => {
-  const [categories, setCategories] = uCeState({});
-  const value = { products };
+  const [categoriesMap, setCategoriesMap] = useState({});
+  const value = { categoriesMap };
 
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
+      const categoryMap = await getCategoriesAndDocuments("categories");
       console.log(categoryMap);
+      setCategoriesMap(categoryMap);
     };
 
     getCategoriesMap();
