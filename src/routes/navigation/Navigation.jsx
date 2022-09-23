@@ -6,7 +6,6 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import CartDropdown from "../../components/cart-dropdown/CartDropdown";
 import { CartContext } from "../../context/CartContext";
-import "./navigation.styles.scss";
 import {
   NavigationContainer,
   NavLink,
