@@ -1,26 +1,21 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {
   DiretoryItemContainer,
   BackgroundImage,
   DirectoryItemBody,
 } from "./directory-item.styles";
 
-function DirectoryItem({ id, title, imageUrl }) {
-  const navigate = useNavigate();
+function DirectoryItem({ title, imageUrl, handleClick }) {
+  // const navigate = useNavigate();
 
-  const goToCategory = () => {
-    navigate(`/shop/${title.toLowerCase()}`);
-  };
+  // const goToCategory = () => {
+  //   navigate(`/shop/${title.toLowerCase()}`);
+  // };
 
   return (
-    <DiretoryItemContainer key={id}>
-      <BackgroundImage
-        // className="background-image"
-        // style={{ backgroundImage: `url(${imageUrl})` }}
-        imageUrl={imageUrl}
-      />
-      <DirectoryItemBody onClick={goToCategory}>
+    <DiretoryItemContainer onClick={handleClick}>
+      <BackgroundImage imageUrl={imageUrl} />
+      <DirectoryItemBody>
         <h2>{title} </h2>
         <p>Shop Now</p>
       </DirectoryItemBody>
