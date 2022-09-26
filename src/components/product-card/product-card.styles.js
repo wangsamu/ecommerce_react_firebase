@@ -1,4 +1,6 @@
-.product-card-container {
+import styled from "styled-components";
+
+const ProductCardContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -31,21 +33,20 @@
       display: flex;
     }
   }
+`;
+const Footer = styled.div`
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+`;
+const Name = styled(Footer)`
+  width: 90%;
+  margin-bottom: 15px;
+`;
+const Price = styled(Footer)`
+  width: 10%;
+`;
 
-  .footer {
-    width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-
-    .name {
-      width: 90%;
-      margin-bottom: 15px;
-    }
-
-    .price {
-      width: 10%;
-    }
-  }
-}
+export { ProductCardContainer, Footer, Name, Price };

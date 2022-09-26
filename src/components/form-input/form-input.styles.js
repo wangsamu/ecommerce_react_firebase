@@ -54,18 +54,3 @@ const Input = styled.input`
 `;
 
 export { Group, Input, InputLabel };
-
-/*
-
-
-.group {
-
-  .form-input {
-  }
-
-
-
-  .form-input-label {
-  }
-}
-*/
