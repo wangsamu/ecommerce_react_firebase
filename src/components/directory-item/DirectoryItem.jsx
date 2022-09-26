@@ -16,10 +16,11 @@ function DirectoryItem({ id, title, imageUrl }) {
   return (
     <DiretoryItemContainer key={id}>
       <BackgroundImage
-        className="background-image"
-        style={{ backgroundImage: `url(${imageUrl})` }}
+        // className="background-image"
+        // style={{ backgroundImage: `url(${imageUrl})` }}
+        imageUrl={imageUrl}
       />
-      <DirectoryItemBody className="body" onClick={goToCategory}>
+      <DirectoryItemBody onClick={goToCategory}>
         <h2>{title} </h2>
         <p>Shop Now</p>
       </DirectoryItemBody>
