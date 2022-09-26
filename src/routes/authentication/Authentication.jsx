@@ -5,10 +5,10 @@ import "./authentication.styles.scss";
 
 function Authentication() {
   return (
-    <div className="auth-container">
+    <AuthContainer>
       <SignInForm />
       <SignUpForm />
-    </div>
+    </AuthContainer>
   );
 }
 
