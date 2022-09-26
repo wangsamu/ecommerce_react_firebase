@@ -1,7 +1,7 @@
 import React from "react";
 import SignInForm from "../../components/sign-in-form/SignInForm";
 import SignUpForm from "../../components/sign-up-form/SignUpForm";
-import "./authentication.styles.scss";
+import { AuthContainer } from "./authentication.styles";
 
 function Authentication() {
   return (
