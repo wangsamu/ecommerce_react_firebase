@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import ProductCard from "../product-card/ProductCard";
 import "./category-preview.styles";
 import {
@@ -7,7 +6,6 @@ import {
   Title,
   Preview,
 } from "./category-preview.styles";
-// import "./category-preview.styles.scss";
 
 function CategoryPreview({ title, products }) {
   return (

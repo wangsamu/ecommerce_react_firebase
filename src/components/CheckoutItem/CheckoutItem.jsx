@@ -1,5 +1,14 @@
 import React from "react";
-import "./checkout-item.styles.scss";
+import {
+  CheckOutItemContainer,
+  ImageContainer,
+  Name,
+  Quantity,
+  Arrow,
+  Value,
+  RemoveButton,
+  Price,
+} from "./checkout-item.styles";
 
 function CheckoutItem(props) {
   const {
@@ -12,21 +21,19 @@ function CheckoutItem(props) {
   const { id, name, imageUrl, price, quantity } = product;
 
   return (
-    <div key={id} className="checkout-item-container">
-      <div className="image-container">
+    <CheckOutItemContainer key={id}>
+      <ImageContainer>
         <img src={imageUrl} alt={name} />
-      </div>
-      <div className="name">{name}</div>
-      <div className="quantity">
-        <span onClick={handleDecreaseQuantity}>&#10094;</span>
+      </ImageContainer>
+      <Name>{name}</Name>
+      <Quantity>
+        <Arrow onClick={handleDecreaseQuantity}>&#10094; </Arrow>
         <span>{quantity}</span>
-        <span onClick={handleIncreaseQuantity}>&#10095;</span>
-      </div>
-      <div className="price">{price}</div>
-      <button className="remove-button" onClick={handleRemove}>
-        &#10005;
-      </button>
-    </div>
+        <Arrow onClick={handleIncreaseQuantity}> &#10095;</Arrow>
+      </Quantity>
+      <Price>{price}</Price>
+      <RemoveButton onClick={handleRemove}>&#10005;</RemoveButton>
+    </CheckOutItemContainer>
   );
 }
 
