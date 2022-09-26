@@ -25,7 +25,7 @@ ${InvertedButton} {
   }
 `;
 
-const EmptyMessage = styled.div`
+const EmptyMessage = styled.span`
   font-size: 18px;
   margin: 50px auto;
 `;
