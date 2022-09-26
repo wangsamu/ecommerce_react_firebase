@@ -2,7 +2,6 @@ import React from "react";
 import { Group, Input, InputLabel } from "./form-input.styles";
 
 function FormInput({ label, inputOptions }) {
-  // const shrink = ;
   return (
     <Group>
       <Input required {...inputOptions} />
