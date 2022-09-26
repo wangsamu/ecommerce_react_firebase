@@ -2,12 +2,11 @@ import React from "react";
 import {
   CheckOutItemContainer,
   ImageContainer,
-  Name,
+  BaseSpan,
   Quantity,
   Arrow,
   Value,
   RemoveButton,
-  Price,
 } from "./checkout-item.styles";
 
 function CheckoutItem(props) {
@@ -25,13 +24,13 @@ function CheckoutItem(props) {
       <ImageContainer>
         <img src={imageUrl} alt={name} />
       </ImageContainer>
-      <Name>{name}</Name>
+      <BaseSpan>{name}</BaseSpan>
       <Quantity>
         <Arrow onClick={handleDecreaseQuantity}>&#10094; </Arrow>
-        <span>{quantity}</span>
+        <Value>{quantity}</Value>
         <Arrow onClick={handleIncreaseQuantity}> &#10095;</Arrow>
       </Quantity>
-      <Price>{price}</Price>
+      <BaseSpan>{price}</BaseSpan>
       <RemoveButton onClick={handleRemove}>&#10005;</RemoveButton>
     </CheckOutItemContainer>
   );

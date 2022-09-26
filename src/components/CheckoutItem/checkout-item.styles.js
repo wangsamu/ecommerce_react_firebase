@@ -20,23 +20,19 @@ const ImageContainer = styled.div`
   }
 `;
 
-const Name = styled.div`
+const BaseSpan = styled.div`
   width: 23%;
 `;
-const Price = styled.div`
-  width: 23%;
-`;
-const Quantity = styled.div`
-  width: 23%;
+const Quantity = styled(BaseSpan)`
   display: flex;
 `;
-const Arrow = styled.span`
+const Arrow = styled.div`
   cursor: pointer;
 `;
-const Value = styled.div`
+const Value = styled.span`
   margin: 0 10px;
 `;
-const RemoveButton = styled.span`
+const RemoveButton = styled.div`
   padding-left: 12px;
   cursor: pointer;
 `;
@@ -44,10 +40,9 @@ const RemoveButton = styled.span`
 export {
   CheckOutItemContainer,
   ImageContainer,
-  Name,
+  BaseSpan,
   Quantity,
   Arrow,
   Value,
   RemoveButton,
-  Price,
 };
