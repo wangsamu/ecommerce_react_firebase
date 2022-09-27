@@ -19,6 +19,10 @@ const userReducer = (state, action) => {
       return {
         currentUser: payload,
       };
+    case "increment":
+      return {
+        value: state.value + 1,
+      };
 
     default:
       throw new Error("unhandled type ${type} in userReducer");
