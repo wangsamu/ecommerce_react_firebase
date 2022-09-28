@@ -4,7 +4,7 @@ import {
   onAuthStateChangedListener,
   signOutUser,
 } from "../utils/firebase/firebase.utils";
-import { createAction } from "../utils/reducer";
+import { createAction } from "../utils/reducer.utils";
 
 export const UserContext = createContext({
   currentUser: null,
