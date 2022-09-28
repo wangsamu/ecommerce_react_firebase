@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   const itemIsInCart = cartItems.find((item) => item.id === productToAdd.id);
@@ -48,6 +48,13 @@ export const CartContext = createContext({
   cartItems: [],
   addItemToCart: () => {},
 });
+
+const INITIAL_STATE = {
+  isCartOpen: false,
+  cartItems: [],
+  itemCount: 0,
+  priceCount: 0,
+};
 
 export const CartDropdownProvider = ({ children }) => {
   const [isCartOpen, setisCartOpen] = useState(false);
