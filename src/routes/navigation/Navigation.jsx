@@ -12,10 +12,12 @@ import {
   NavLinks,
   Logo,
 } from "./navigation.styles";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
-  const { currentUser } = useContext(UserContext);
+  // const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const currentUser = useSelector((state) => state.user.currentUser);
 
   return (
     <Fragment>
