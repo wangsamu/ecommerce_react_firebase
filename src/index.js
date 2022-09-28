@@ -7,18 +7,22 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.styles.scss";
 import { CartDropdownProvider } from "./context/CartContext";
 import { CategoriesProvider } from "./context/CategoriesContext";
+import { Provider } from "react-redux";
+import { store } from "../src/store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
-        <CategoriesProvider>
-          <CartDropdownProvider>
-            <App />
-          </CartDropdownProvider>
-        </CategoriesProvider>
-      </UserProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <UserProvider>
+          <CategoriesProvider>
+            <CartDropdownProvider>
+              <App />
+            </CartDropdownProvider>
+          </CategoriesProvider>
+        </UserProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
