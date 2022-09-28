@@ -71,27 +71,8 @@ const cartReducer = (state, action) => {
 };
 
 export const CartDropdownProvider = ({ children }) => {
-  const [isCartOpen, setisCartOpen] = useState(false);
-  const [{ cartItems }, dispatch] = useReducer(cartReducer, INITIAL_STATE);
-  // const [cartItems, setCartItems] = useState([]);
-  const [itemCount, setItemCount] = useState(0);
-  const [priceCount, setPriceCount] = useState(0);
-
-  useEffect(() => {
-    const newItemCount = cartItems.reduce(
-      (acc, current) => acc + current.quantity,
-      0
-    );
-    setItemCount(newItemCount);
-  }, [cartItems]);
-
-  useEffect(() => {
-    const newPriceCount = cartItems.reduce(
-      (acc, current) => acc + current.quantity * current.price,
-      0
-    );
-    setPriceCount(newPriceCount);
-  }, [cartItems]);
+  const [{ cartItems, isCartOpen, itemCount, priceCount }, dispatch] =
+    useReducer(cartReducer, INITIAL_STATE);
 
   const addItemToCart = (productToAdd) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
@@ -109,26 +90,24 @@ export const CartDropdownProvider = ({ children }) => {
   };
 
   const updateCartItemReducer = (newCartItems) => {
-    /*dispatch new action with payload including:
     // generate newItemCount
     const newItemCount = newCartItems.reduce(
       (acc, current) => acc + current.quantity,
       0
     );
-   // generate newPriceCount
+    // generate newPriceCount
     const newPriceCount = newCartItems.reduce(
       (acc, current) => acc + current.quantity * current.price,
       0
     );
-    {
-      newCartItems,
-      newItemCount,
-      newPriceCount
-    }
-    */
+
     dispatch({
       type: CART_ACTION_TYPES.SET_CART_ITEMS,
-      payload: newCartItems,
+      payload: {
+        cartItems: newCartItems,
+        itemCount: newItemCount,
+        priceCount: newPriceCount,
+      },
     });
   };
 
