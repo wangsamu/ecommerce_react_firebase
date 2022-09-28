@@ -56,6 +56,15 @@ const INITIAL_STATE = {
   priceCount: 0,
 };
 
+const cartReducer = (state, action) => {
+  const { type, payload } = action;
+
+  switch (type) {
+    default:
+      throw new Error(`unhandled type ${type} in cartReducer`);
+  }
+};
+
 export const CartDropdownProvider = ({ children }) => {
   const [isCartOpen, setisCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
