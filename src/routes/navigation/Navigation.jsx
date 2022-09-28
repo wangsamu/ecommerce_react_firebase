@@ -13,11 +13,13 @@ import {
   Logo,
 } from "./navigation.styles";
 import { useSelector } from "react-redux";
+import { selectCurrentUSer } from "../../store/user/user.selector";
 
 const Navigation = () => {
   // const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
-  const currentUser = useSelector((state) => state.user.currentUser);
+  // const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUSer);
 
   return (
     <Fragment>
