@@ -94,23 +94,32 @@ export const CartDropdownProvider = ({ children }) => {
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
-    setCartItems(addCartItem(cartItems, productToAdd));
+    const newCartItems = addCartItem(cartItems, productToAdd);
+    updateCartItemReducer(newCartItems);
   };
 
   const subtractItemFromCart = (productToAdd) => {
-    setCartItems(subtractCartItem(cartItems, productToAdd));
+    const newCartItems = subtractCartItem(cartItems, productToAdd);
+    updateCartItemReducer(newCartItems);
   };
 
   const removeItemFromCart = (productToAdd) => {
-    setCartItems(removeCartItem(cartItems, productToAdd));
+    const newCartItems = removeCartItem(cartItems, productToAdd);
+    updateCartItemReducer(newCartItems);
   };
 
   const updateCartItemReducer = (newCartItems) => {
     /*dispatch new action with payload including:
-    generate newItemCount
-
-    generate newPriceCount
-    
+    // generate newItemCount
+    const newItemCount = newCartItems.reduce(
+      (acc, current) => acc + current.quantity,
+      0
+    );
+   // generate newPriceCount
+    const newPriceCount = newCartItems.reduce(
+      (acc, current) => acc + current.quantity * current.price,
+      0
+    );
     {
       newCartItems,
       newItemCount,
