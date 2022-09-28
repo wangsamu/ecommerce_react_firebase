@@ -4,10 +4,10 @@ import { CartContext } from "../../context/CartContext";
 import { CartIconContainer, ShoppingIcon, ItemCont } from "./cart-icon.styles";
 
 function CartIcon() {
-  const { isCartOpen, setisCartOpen, itemCount } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, itemCount } = useContext(CartContext);
 
   const handleClick = () => {
-    setisCartOpen(!isCartOpen);
+    setIsCartOpen(!isCartOpen);
     console.log(isCartOpen);
   };
 

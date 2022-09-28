@@ -49,6 +49,11 @@ export const CartContext = createContext({
   addItemToCart: () => {},
 });
 
+const CART_ACTION_TYPES = {
+  SET_CART_ITEMS: "SET_CART_ITEMS",
+  SET_IS_CART_OPEN: "SET_IS_CART_OPEN",
+};
+
 const INITIAL_STATE = {
   isCartOpen: false,
   cartItems: [],
@@ -60,15 +65,15 @@ const cartReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case "SET_CART_ITEMS":
+    case CART_ACTION_TYPES.SET_CART_ITEMS:
       return {
         ...state,
         ...payload,
       };
-    case "SET_IS_CART_OPEN":
+    case CART_ACTION_TYPES.SET_IS_CART_OPEN:
       return {
         ...state,
-        ...payload,
+        isCartOpen: payload,
       };
     default:
       throw new Error(`unhandled type ${type} in cartReducer`);
@@ -94,19 +99,21 @@ export const CartDropdownProvider = ({ children }) => {
     updateCartItemReducer(newCartItems);
   };
 
-  const setIsCartOpen = () => {
-    const newIsCartOpen = !isCartOpen;
-    updateIsCartOpenReducer(newIsCartOpen);
-  };
-
-  const updateIsCartOpenReducer = (newIsCartOpen) => {
+  const setIsCartOpen = (bool) => {
     dispatch({
-      type: "SET_IS_CART_OPEN",
-      payload: {
-        isCartOpen: newIsCartOpen,
-      },
+      type: CART_ACTION_TYPES.SET_IS_CART_OPEN,
+      payload: bool,
     });
   };
+
+  // const updateIsCartOpenReducer = (newIsCartOpen) => {
+  //   dispatch({
+  //     type: CART_ACTION_TYPES.SET_IS_CART_OPEN,
+  //     payload: {
+  //       isCartOpen: newIsCartOpen,
+  //     },
+  //   });
+  // };
 
   const updateCartItemReducer = (newCartItems) => {
     // generate newItemCount
@@ -121,7 +128,7 @@ export const CartDropdownProvider = ({ children }) => {
     );
 
     dispatch({
-      type: "SET_CART_ITEMS",
+      type: CART_ACTION_TYPES.SET_CART_ITEMS,
       payload: {
         cartItems: newCartItems,
         itemCount: newItemCount,
@@ -132,7 +139,7 @@ export const CartDropdownProvider = ({ children }) => {
 
   const value = {
     isCartOpen,
-    setisCartOpen,
+    setIsCartOpen,
     cartItems,
     addItemToCart,
     itemCount,
