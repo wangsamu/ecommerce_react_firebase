@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 
 const addCartItem = (cartItems, productToAdd) => {
   const itemIsInCart = cartItems.find((item) => item.id === productToAdd.id);
@@ -60,6 +60,11 @@ const cartReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
+    case "SET_CART_ITEMS":
+      return {
+        ...state,
+        cartItems: payload,
+      };
     default:
       throw new Error(`unhandled type ${type} in cartReducer`);
   }
@@ -67,7 +72,8 @@ const cartReducer = (state, action) => {
 
 export const CartDropdownProvider = ({ children }) => {
   const [isCartOpen, setisCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [{ cartItems }, dispatch] = useReducer(cartReducer, INITIAL_STATE);
+  // const [cartItems, setCartItems] = useState([]);
   const [itemCount, setItemCount] = useState(0);
   const [priceCount, setPriceCount] = useState(0);
 
@@ -97,6 +103,24 @@ export const CartDropdownProvider = ({ children }) => {
 
   const removeItemFromCart = (productToAdd) => {
     setCartItems(removeCartItem(cartItems, productToAdd));
+  };
+
+  const updateCartItemReducer = (newCartItems) => {
+    /*dispatch new action with payload including:
+    generate newItemCount
+
+    generate newPriceCount
+    
+    {
+      newCartItems,
+      newItemCount,
+      newPriceCount
+    }
+    */
+    dispatch({
+      type: CART_ACTION_TYPES.SET_CART_ITEMS,
+      payload: newCartItems,
+    });
   };
 
   const value = {
