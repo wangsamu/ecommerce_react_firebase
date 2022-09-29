@@ -8,7 +8,7 @@ import { CartDropdownProvider } from "./context/CartContext";
 import { CategoriesProvider } from "./context/CategoriesContext";
 import { UserProvider } from "../src/context/UserContext";
 import reportWebVitals from "./reportWebVitals";
-import { store } from "../src/store/store";
+import { store } from "./store/store";
 
 import "./index.styles.scss";
 
