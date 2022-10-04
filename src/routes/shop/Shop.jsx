@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import { CategoriesContext } from "../../context/CategoriesContext";
+import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import CategoriesPreview from "../CategoriesPreview/CategoriesPreview";
 import Category from "../Category/Category";
