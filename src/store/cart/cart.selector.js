@@ -24,4 +24,4 @@ const selectCartCount = createSelector([selectCartItems], (cartItems) =>
   cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
 );
 
-export { selectIsCartOpen };
+export { selectIsCartOpen, selectCartItems, slectCartTotal, selectCartCount };
