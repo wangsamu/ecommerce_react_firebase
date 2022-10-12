@@ -27,23 +27,23 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
 
-  return cartItems.map((cartitem) =>
-    cartitem.id === cartItemToRemove.id
-      ? { ...cartItem, quantity: cartitem.quantity - 1 }
-      : cartitem
+  return cartItems.map((cartItem) =>
+    cartItem.id === cartItemToRemove.id
+      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      : cartItem
   );
 };
 
-const clearCartItem = (cartItem, cartItemToClear) =>
+const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
-const addItemToCart = (cartItem, productToAdd) => {
+const addItemToCart = (cartItems, productToAdd) => {
   const newCartItems = addCartItem(cartItems, productToAdd);
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
-const removeItemFromCart = (carItems, cartItemsToRemove) => {
-  const newCartItems = removeCartItems(cartItems, cartItemsToRemove);
+const removeItemFromCart = (cartItems, cartItemsToRemove) => {
+  const newCartItems = removeCartItem(cartItems, cartItemsToRemove);
   return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
 };
 
