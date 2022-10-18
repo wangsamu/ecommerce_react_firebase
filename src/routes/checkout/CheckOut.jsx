@@ -17,7 +17,7 @@ function CheckOut() {
         <div className="header-block">Product</div>
         <div className="header-block">Description</div>
         <div className="header-block">Quantity</div>
-        <div className="header-block">Price</div>
+        <div className="header-block">Price</div>x
         <div className="header-block">Remove</div>
       </div>
       {cartItems.map((cartItem) => (
