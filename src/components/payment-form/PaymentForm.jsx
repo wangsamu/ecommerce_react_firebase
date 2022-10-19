@@ -1,5 +1,14 @@
 import { CardElement } from "@stripe/react-stripe-js";
 
-import Button from "../button/Button";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 
-const PaymentForm = {};
+const PaymentForm = () => {
+  return (
+    <div>
+      <CardElement />
+      <Button buttonType={BUTTON_TYPE_CLASSES.inverted}> Pay now </Button>
+    </div>
+  );
+};
+
+export default PaymentForm;
