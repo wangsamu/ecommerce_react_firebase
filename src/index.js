@@ -7,6 +7,7 @@ import App from "./App";
 import { CartDropdownProvider } from "./context/CartContext";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
+import { Elements } from "@stripe/react-stripe-js";
 
 import "./index.styles.scss";
 
@@ -15,7 +16,9 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <CartDropdownProvider>
-          <App />
+          <Elements>
+            <App />
+          </Elements>
         </CartDropdownProvider>
       </BrowserRouter>
     </Provider>
