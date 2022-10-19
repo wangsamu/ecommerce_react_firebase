@@ -10,13 +10,14 @@ import { store } from "./store/store";
 import { Elements } from "@stripe/react-stripe-js";
 
 import "./index.styles.scss";
+import { stripePromise } from "./utils/stipe/stripe.utils";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <CartDropdownProvider>
-          <Elements>
+          <Elements stripe={stripePromise}>
             <App />
           </Elements>
         </CartDropdownProvider>
