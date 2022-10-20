@@ -23,6 +23,12 @@ const PaymentForm = () => {
     }).then((res) => res.json());
 
     console.log(response);
+
+    const {
+      paymentIntent: { client_secret },
+    } = response;
+
+    console.log(client_secret);
   };
 
   return (
