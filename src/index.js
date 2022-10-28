@@ -7,15 +7,19 @@ import App from "./App";
 import { CartDropdownProvider } from "./context/CartContext";
 import reportWebVitals from "./reportWebVitals";
 import { store } from "./store/store";
+import { Elements } from "@stripe/react-stripe-js";
 
 import "./index.styles.scss";
+import { stripePromise } from "./utils/stipe/stripe.utils";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <CartDropdownProvider>
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
         </CartDropdownProvider>
       </BrowserRouter>
     </Provider>

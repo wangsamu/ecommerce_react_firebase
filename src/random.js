@@ -8,3 +8,8 @@ const sum = array.reduce((acc, current) => acc + current, 0);
 console.log(sum);
 
 // hola me estoy equivocando
+
+const randomStuff = () => {
+  if (1 === 2) return "something is weird";
+  return "everything is fine";
+};
