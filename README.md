@@ -1,3 +1,1 @@
-e-commerce web app using react, redux, styled-components, firebase and graphQL.
-
-Adding Stripe to the App:
+An e-commerce website build with react, redux and firebase.
